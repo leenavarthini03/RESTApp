@@ -10,6 +10,8 @@ app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
+const port = process.env.PORT || 3000;
+
 mongoose.connect('mongodb://localhost/RESTapp');
 
 var blogSchema= new mongoose.Schema({
@@ -104,16 +106,4 @@ app.delete("/blogs/:id", function(req, res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(3000,()=>{console.log("server is running on port 3000");});
+app.listen(port,()=>{console.log("server is running on port 3000");});
